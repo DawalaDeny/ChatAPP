@@ -1,2 +1,2 @@
 # ChatAPP
-Kennismaking met websockets
+Introduction to websockets
