@@ -1,0 +1,163 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+}
+
+#crt {
+
+
+    overflow: hidden;
+
+}
+
+#crt:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to bottom,
+            rgba(41, 77, 5, 0) 50%,
+            rgba(9, 42, 7, 0.25) 50%);
+    background-size: 100% 8px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 8;
+    background: linear-gradient(0deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(255, 255, 255, 0.2) 10%,
+            rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 5s linear infinite;
+
+}
+
+@keyframes scanline {
+    0% {
+        bottom: 120%;
+    }
+
+    60% {
+        bottom: 100%;
+    }
+
+    100% {
+        bottom: -20%;
+    }
+}
+
+#bezel {
+    position: relative;
+    width: 100%;
+    height: 67.5vmin;
+    border: 30px solid transparent;
+    border-image-source: url(./img/bezel.png);
+    border-image-slice: 30 fill;
+    border-image-outset: 0;
+    overflow: hidden;
+}
+
+#monitor {
+    margin: 50px auto auto auto;
+    padding: 5.5vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(24, 48, 38);
+    border-radius: 0.5rem;
+    max-width: 100vw;
+    width: 900px;
+}
+
+.terminalText {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    color: #00ff00;
+    position: relative;
+
+}
+
+.name {
+    font-weight: bold;
+}
+
+#info {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+
+}
+
+
+#info i {
+    font-size: 150%;
+    transition: transform 0.2s ease-out;
+}
+
+
+#info i:hover {
+    transform: scale(1.2);
+}
+
+#messageInput {
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    color: #00ff00;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+
+}
+
+a {
+    font-size: 150%;
+    margin-top: 5px;
+    color: black;
+    text-decoration: none;
+}
+.active{
+color: black;
+}
+.deactive{
+color: red;
+}
+
+@media (max-width: 700px) {
+
+    #monitor,
+    #bezel {
+        height: 60vh;
+    }
+
+    * {
+        font-size: 0.95em;
+    }
+
+}
+body{
+    background-color: rgb(23, 22, 22);
+}
